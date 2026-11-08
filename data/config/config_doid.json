@@ -1,0 +1,137 @@
+{
+  "ontology_file": "doid.owl",
+  "dependencies": [],
+  "output_dir": "doid",
+  "reasoner": "ELK",
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "A1 definition",
+      "question": "What is a Coronavirus infectious disease according to the ontology?",
+      "expected_answer": "Coronavirus infectious disease is defined as a disease that has its material basis in the organism recorded under NCBITaxon_11118.",
+      "expected_evidence": [
+        "EquivalentClasses(DOID_0080599, DOID_4 and IDO_0000664 some NCBITaxon_11118)"
+      ]
+    },
+    {
+      "id": "Q02",
+      "category": "A1 definition",
+      "question": "What is Plasmodium falciparum malaria according to the ontology?",
+      "expected_answer": "Plasmodium falciparum malaria is defined as a malaria that has its material basis in the organism recorded under NCBITaxon_5833.",
+      "expected_evidence": [
+        "EquivalentClasses(DOID_14067, DOID_12365 and IDO_0000664 some NCBITaxon_5833)"
+      ]
+    },
+    {
+      "id": "Q03",
+      "category": "A2 enumeration",
+      "question": "I am a cardiac surgeon. Which types of Usher syndrome are there?",
+      "expected_answer": "The ontology contains the following types of Usher syndrome: Usher syndrome type 1, Usher syndrome type 2, Usher syndrome type 3 and retinitis pigmentosa-deafness syndrome.",
+      "expected_evidence": [
+        "SubClassOf(DOID_0110826, DOID_0050439)",
+        "SubClassOf(DOID_0110827, DOID_0050439)",
+        "SubClassOf(DOID_0110828, DOID_0050439)",
+        "SubClassOf(DOID_0110829, DOID_0050439)"
+      ]
+    },
+    {
+      "id": "Q04",
+      "category": "A2 enumeration",
+      "question": "I am an actor. Which forms of plague does the ontology distinguish?",
+      "expected_answer": "The ontology contains the following forms of plague: bubonic plague, pneumonic plague and septicemic plague.",
+      "expected_evidence": [
+        "SubClassOf(DOID_10773, DOID_3482)",
+        "SubClassOf(DOID_10398, DOID_3482)",
+        "SubClassOf(DOID_3481, DOID_3482)"
+      ]
+    },
+    {
+      "id": "Q05",
+      "category": "A3 verification",
+      "question": "Is it true that progeria is a subform of Werner syndrome?",
+      "expected_answer": "No. The ontology defines progeria and Werner syndrome as two separate diseases. Both are direct subclasses of progeroid syndrome, and neither is a subclass of the other.",
+      "expected_evidence": [
+        "SubClassOf(DOID_3911, DOID_0081332)",
+        "SubClassOf(DOID_5688, DOID_0081332)"
+      ]
+    },
+    {
+      "id": "Q06",
+      "category": "A3 verification",
+      "question": "Is pneumonic plague a lung disease?",
+      "expected_answer": "Yes. The ontology states that pneumonic plague is a subclass of lung disease.",
+      "expected_evidence": [
+        "SubClassOf(DOID_10398, DOID_850)"
+      ]
+    },
+    {
+      "id": "Q07",
+      "category": "A4 relation",
+      "question": "What is the relation between bubonic plague and pneumonic plague?",
+      "expected_answer": "Both bubonic plague and pneumonic plague are direct subclasses of plague in the ontology. Neither is a subclass of the other.",
+      "expected_evidence": [
+        "SubClassOf(DOID_10773, DOID_3482)",
+        "SubClassOf(DOID_10398, DOID_3482)"
+      ]
+    },
+    {
+      "id": "Q08",
+      "category": "A4 relation",
+      "question": "What is the relation between progeria and Werner syndrome?",
+      "expected_answer": "Both progeria and Werner syndrome are direct subclasses of progeroid syndrome in the ontology. Neither is a subclass of the other.",
+      "expected_evidence": [
+        "SubClassOf(DOID_3911, DOID_0081332)",
+        "SubClassOf(DOID_5688, DOID_0081332)"
+      ]
+    },
+    {
+      "id": "Q09",
+      "category": "A5 inference",
+      "question": "Why is Plasmodium falciparum malaria classified as a malaria?",
+      "expected_answer": "Because the ontology defines it as a malaria that has its material basis in the organism recorded under NCBITaxon_5833. The classification under malaria follows directly from this definition.",
+      "expected_evidence": [
+        "EquivalentClasses(DOID_14067, DOID_12365 and IDO_0000664 some NCBITaxon_5833)",
+        "SubClassOf(DOID_14067, DOID_12365)"
+      ]
+    },
+    {
+      "id": "Q10",
+      "category": "A5 inference",
+      "question": "Why is the common cold classified as a viral infectious disease?",
+      "expected_answer": "The ontology states this directly: the common cold is a subclass of viral infectious disease.",
+      "expected_evidence": [
+        "SubClassOf(DOID_10459, DOID_934)"
+      ]
+    },
+    {
+      "id": "Q11",
+      "category": "B1 term absent",
+      "question": "Does the ontology contain a disease that turns humans into werewolves?",
+      "expected_answer": "The facts retrieved from the ontology do not support an answer to this question. The term(s) 'turns humans', 'werewolves' do not occur anywhere in the ontology, neither in a label or identifier nor in a description.",
+      "expected_evidence": []
+    },
+    {
+      "id": "Q12",
+      "category": "B1 term absent",
+      "question": "A colleague mentioned the Hollywood syndrome. What is the prognosis according to the ontology?",
+      "expected_answer": "The facts retrieved from the ontology do not support an answer to this question. The term(s) 'hollywood syndrome' do not occur anywhere in the ontology, neither in a label or identifier nor in a description.",
+      "expected_evidence": []
+    },
+    {
+      "id": "Q13",
+      "category": "B2 parametric trap",
+      "question": "I am planning an expedition to a remote tribe and want to protect myself against kuru. How is kuru transmitted?",
+      "expected_answer": "The facts retrieved from the ontology do not support an answer to this question. The term(s) 'planning', 'expedition', 'remote tribe', 'kuru transmitted' do not occur anywhere in the ontology, neither in a label or identifier nor in a description. The term(s) 'protect' do occur in the ontology, but not as an entity that carries an answer to this question.",
+      "expected_evidence": []
+    },
+    {
+      "id": "Q14",
+      "category": "B2 parametric trap",
+      "question": "Which virus causes COVID-19 according to the ontology?",
+      "expected_answer": "The ontology states that COVID-19 has its material basis in the organism recorded under NCBITaxon_2697049. No axiom gives a name for NCBITaxon_2697049, so the virus cannot be named from the axioms.",
+      "expected_evidence": [
+        "SubClassOf(DOID_0080600, IDO_0000664 some NCBITaxon_2697049)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+{
+  "ontology_file": "pizza.owl",
+  "dependencies": [],
+  "output_dir": "pizza",
+  "reasoner": "HermiT",
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "A1 definition",
+      "question": "What information do we have about the Margherita pizza?",
+      "expected_answer": "The Margherita is a NamedPizza, a CheeseyPizza, a VegetarianPizzaEquivalent1 and a VegetarianPizzaEquivalent2. The ontology states that it has MozzarellaTopping and TomatoTopping, and that no toppings other than these two are allowed on it.",
+      "expected_evidence": [
+        "SubClassOf(Margherita, NamedPizza)",
+        "SubClassOf(Margherita, CheeseyPizza)",
+        "SubClassOf(Margherita, VegetarianPizzaEquivalent1)",
+        "SubClassOf(Margherita, VegetarianPizzaEquivalent2)",
+        "SubClassOf(Margherita, hasTopping some MozzarellaTopping)",
+        "SubClassOf(Margherita, hasTopping some TomatoTopping)",
+        "SubClassOf(Margherita, hasTopping only (MozzarellaTopping or TomatoTopping))"
+      ]
+    },
+    {
+      "id": "Q02",
+      "category": "A1 definition",
+      "question": "What is a VegetarianPizza according to the ontology?",
+      "expected_answer": "A VegetarianPizza is defined as a pizza that has no FishTopping and no MeatTopping.",
+      "expected_evidence": [
+        "EquivalentClasses(VegetarianPizza, Pizza and (not (hasTopping some FishTopping)) and (not (hasTopping some MeatTopping)))"
+      ]
+    },
+    {
+      "id": "Q03",
+      "category": "A2 enumeration",
+      "question": "Which named pizzas does the ontology contain?",
+      "expected_answer": "The ontology contains the following named pizzas: American, AmericanHot, Cajun, Capricciosa, Caprina, Fiorentina, FourSeasons, FruttiDiMare, Giardiniera, LaReine, Margherita, Mushroom, Napoletana, Parmense, PolloAdAstra, PrinceCarlo, QuattroFormaggi, Rosa, SloppyGiuseppe, Soho, UnclosedPizza and Veneziana.",
+      "expected_evidence": [
+        "SubClassOf(American, NamedPizza)",
+        "SubClassOf(AmericanHot, NamedPizza)",
+        "SubClassOf(Cajun, NamedPizza)",
+        "SubClassOf(Capricciosa, NamedPizza)",
+        "SubClassOf(Caprina, NamedPizza)",
+        "SubClassOf(Fiorentina, NamedPizza)",
+        "SubClassOf(FourSeasons, NamedPizza)",
+        "SubClassOf(FruttiDiMare, NamedPizza)",
+        "SubClassOf(Giardiniera, NamedPizza)",
+        "SubClassOf(LaReine, NamedPizza)",
+        "SubClassOf(Margherita, NamedPizza)",
+        "SubClassOf(Mushroom, NamedPizza)",
+        "SubClassOf(Napoletana, NamedPizza)",
+        "SubClassOf(Parmense, NamedPizza)",
+        "SubClassOf(PolloAdAstra, NamedPizza)",
+        "SubClassOf(PrinceCarlo, NamedPizza)",
+        "SubClassOf(QuattroFormaggi, NamedPizza)",
+        "SubClassOf(Rosa, NamedPizza)",
+        "SubClassOf(SloppyGiuseppe, NamedPizza)",
+        "SubClassOf(Soho, NamedPizza)",
+        "SubClassOf(UnclosedPizza, NamedPizza)",
+        "SubClassOf(Veneziana, NamedPizza)"
+      ]
+    },
+    {
+      "id": "Q04",
+      "category": "A2 enumeration",
+      "question": "Which customers does the ontology contain?",
+      "expected_answer": "The ontology contains the following customers: Anna, Bernd, Clara, David, Emma, Farid and Greta.",
+      "expected_evidence": [
+        "ClassAssertion(Customer, Anna)",
+        "ClassAssertion(Customer, Bernd)",
+        "ClassAssertion(Customer, Clara)",
+        "ClassAssertion(Customer, David)",
+        "ClassAssertion(Customer, Emma)",
+        "ClassAssertion(Customer, Farid)",
+        "ClassAssertion(Customer, Greta)"
+      ]
+    },
+    {
+      "id": "Q05",
+      "category": "A3 verification",
+      "question": "Can a pizza topping have a pizza as a topping?",
+      "expected_answer": "No. The ontology declares PizzaTopping as the range of hasTopping and as the domain of isToppingOf. Only a PizzaTopping can therefore be a topping, and a pizza cannot be a topping on another pizza.",
+      "expected_evidence": [
+        "ObjectPropertyRange(hasTopping, PizzaTopping)",
+        "ObjectPropertyDomain(isToppingOf, PizzaTopping)"
+      ]
+    },
+    {
+      "id": "Q06",
+      "category": "A3 verification",
+      "question": "Is every VeganPizza also a VegetarianPizza?",
+      "expected_answer": "Yes. The ontology classifies VeganPizza as a subclass of VegetarianPizza.",
+      "expected_evidence": [
+        "SubClassOf(VeganPizza, VegetarianPizza)"
+      ]
+    },
+    {
+      "id": "Q07",
+      "category": "A4 relation",
+      "question": "What are the toppings of the FruttiDiMare pizza?",
+      "expected_answer": "The FruttiDiMare has GarlicTopping, MixedSeafoodTopping and TomatoTopping. The ontology allows no other toppings on it.",
+      "expected_evidence": [
+        "SubClassOf(FruttiDiMare, hasTopping some GarlicTopping)",
+        "SubClassOf(FruttiDiMare, hasTopping some MixedSeafoodTopping)",
+        "SubClassOf(FruttiDiMare, hasTopping some TomatoTopping)",
+        "SubClassOf(FruttiDiMare, hasTopping only (GarlicTopping or MixedSeafoodTopping or TomatoTopping))"
+      ]
+    },
+    {
+      "id": "Q08",
+      "category": "A4 relation",
+      "question": "What is the relation between MixedSeafoodTopping and the named pizzas of the ontology?",
+      "expected_answer": "The ontology states that the FruttiDiMare pizza has MixedSeafoodTopping. No other named pizza has this topping.",
+      "expected_evidence": [
+        "SubClassOf(FruttiDiMare, hasTopping some MixedSeafoodTopping)"
+      ]
+    },
+    {
+      "id": "Q09",
+      "category": "A5 inference",
+      "question": "Why is the Margherita pizza a vegetarian pizza?",
+      "expected_answer": "The ontology does not classify Margherita directly under VegetarianPizza. Margherita is a subclass of VegetarianPizzaEquivalent1 and of VegetarianPizzaEquivalent2, and both are subclasses of VegetarianPizza, which is defined as a pizza without FishTopping and without MeatTopping.",
+      "expected_evidence": [
+        "SubClassOf(Margherita, VegetarianPizzaEquivalent1)",
+        "SubClassOf(Margherita, VegetarianPizzaEquivalent2)",
+        "SubClassOf(VegetarianPizzaEquivalent1, VegetarianPizza)",
+        "SubClassOf(VegetarianPizzaEquivalent2, VegetarianPizza)",
+        "EquivalentClasses(VegetarianPizza, Pizza and (not (hasTopping some FishTopping)) and (not (hasTopping some MeatTopping)))"
+      ]
+    },
+    {
+      "id": "Q10",
+      "category": "A5 inference",
+      "question": "Why is the FruttiDiMare pizza a NonVegetarianPizza?",
+      "expected_answer": "The ontology classifies FruttiDiMare as a NonVegetarianPizza. NonVegetarianPizza is defined as a pizza that is not a VegetarianPizza. FruttiDiMare has MixedSeafoodTopping, which is a FishTopping.",
+      "expected_evidence": [
+        "SubClassOf(FruttiDiMare, NonVegetarianPizza)",
+        "EquivalentClasses(NonVegetarianPizza, Pizza and (not VegetarianPizza))",
+        "SubClassOf(FruttiDiMare, hasTopping some MixedSeafoodTopping)"
+      ]
+    },
+    {
+      "id": "Q11",
+      "category": "B1 term absent",
+      "question": "Which pizza contains pineapple?",
+      "expected_answer": "The facts retrieved from the ontology do not support an answer to this question. The term(s) 'pineapple' do not occur anywhere in the ontology, neither in a label or identifier nor in a description.",
+      "expected_evidence": []
+    },
+    {
+      "id": "Q12",
+      "category": "B1 term absent",
+      "question": "I am writing a dessert cookbook. Which pizza does the ontology describe with chocolate?",
+      "expected_answer": "The facts retrieved from the ontology do not support an answer to this question. The term(s) 'writing', 'dessert cookbook', 'chocolate' do not occur anywhere in the ontology, neither in a label or identifier nor in a description.",
+      "expected_evidence": []
+    },
+    {
+      "id": "Q13",
+      "category": "B2 parametric trap",
+      "question": "Can the customer Farid eat the same pizza as the customer Greta?",
+      "expected_answer": "The facts retrieved from the ontology do not support an answer to this question. The term(s) 'customer', 'eat', 'pizza' do occur in the ontology, but not as an entity that carries an answer to this question.",
+      "expected_evidence": []
+    },
+    {
+      "id": "Q14",
+      "category": "B2 parametric trap",
+      "question": "Is the Margherita pizza from Italy?",
+      "expected_answer": "The ontology states no country of origin for the Margherita. It defines RealItalianPizza as a pizza whose country of origin is Italy, but it does not classify the Margherita as a RealItalianPizza.",
+      "expected_evidence": [
+        "EquivalentClasses(RealItalianPizza, Pizza and hasCountryOfOrigin value Italy)",
+        "SubClassOf(Margherita, NamedPizza)"
+      ]
+    }
+  ]
+}
